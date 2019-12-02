@@ -43,7 +43,24 @@ def part1():
 	return data[0]
 
 def part2():
-	pass
+	target = 19690720
+	input1 = 0
+	input2 = 0
+	result = 0
+	answer = 100 * input1 + input2
+	while result != target:
+		data = load('Day2.txt')
+		data = inputToArray(data)
+		data[1] = input1
+		data[2] = input2
+		data = run(data)
+		result = data[0]
+		answer = 100 * input1 + input2
+		input1 += 1
+		if input1 >= 100:
+			input1 = 0
+			input2 += 1
+	return answer
 
 class TestDay2(unittest.TestCase):
 
@@ -80,3 +97,5 @@ if __name__ == '__main__':
 	#unittest.main()
 	# Part 1: 3850704
 	print(part1())
+	# Part 2: 6718
+	print(part2())
