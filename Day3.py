@@ -1,7 +1,11 @@
 import unittest
+import sys
 
 def load(path):
-	pass
+	data = ''
+	with open(path, 'r') as f:
+		data = f.read()
+	return data
 
 def parseInstruction(ins):
 	direction = ins[0]
@@ -82,6 +86,27 @@ def getIntersect(pt1, pt2, pt3, pt4):
 
 	return [x, y]
 
+def getManhattanDistance(pt1, pt2):
+	return abs(pt1[0] - pt2[0]) + abs(pt1[1] - pt2[1])
+
+def part1():
+	data = load('Day3.txt')
+	data = data.split()
+	line1 = data[0]
+	line2 = data[1]
+	line1Segments = generateLineSegments(line1)
+	line2Segments = generateLineSegments(line2)
+	closestIntersectionDistance = sys.maxsize
+	start = [0,0]
+	for i in line1Segments:
+		for j in line2Segments:
+			result = checkForIntersection(i, j)
+			if result[0]:
+				distance = getManhattanDistance(start, result[1])
+				closestIntersectionDistance = min(closestIntersectionDistance, distance)
+	return closestIntersectionDistance				
+
+
 class TestDay3(unittest.TestCase):
 
 	def test1(self):
@@ -128,6 +153,20 @@ class TestDay3(unittest.TestCase):
 		result = checkForIntersection(line1, line2)
 		self.assertTrue(result[0])
 		self.assertEqual(result[1], [3,3])
+
+	def test10(self):
+		pt1 = [0,0]
+		pt2 = [1,1]
+		result = getManhattanDistance(pt1, pt2)
+		self.assertEqual(result, 2)
+
+	def test11(self):
+		pt1 = [0.0,0.0]
+		pt2 = [1.0,1.0]
+		result = getManhattanDistance(pt1, pt2)
+		self.assertEqual(result, 2)
 	
 if __name__ == '__main__':
-	unittest.main()
+	# unittest.main()
+	# Part 1: 855
+	print(part1())
