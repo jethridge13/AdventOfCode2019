@@ -106,9 +106,39 @@ def part1():
 				closestIntersectionDistance = min(closestIntersectionDistance, distance)
 	return closestIntersectionDistance				
 
+def part2():
+	data = load('Day3.txt')
+	data = data.split()
+	line1 = data[0]
+	line2 = data[1]
+	line1Segments = generateLineSegments(line1)
+	line2Segments = generateLineSegments(line2)
+	intersections = []
+	closestIntersectionSteps = sys.maxsize
+	line1Steps = 0
+	lastLine1Pt = [0,0]
+	line2Steps = 0
+	lastLine2Pt = [0,0]
+	for i in line1Segments:
+		for j in line2Segments:
+			result = checkForIntersection(i, j)
+			if result[0]:
+				# Intersection: Calculate size
+				line1StepsFromLastPt = getManhattanDistance(lastLine1Pt, result[1])
+				line2StepsFromLastPt = getManhattanDistance(lastLine2Pt, result[1])
+				steps = line1Steps + line2Steps + line1StepsFromLastPt + line2StepsFromLastPt
+				closestIntersectionSteps = min(closestIntersectionSteps, steps)
+			line2Steps += getManhattanDistance(lastLine2Pt, j[1])
+			lastLine2Pt = j[1]
+		# Because there are no diagonal lines, we can use
+		# the Manhattan distance to get number of steps
+		line1Steps += getManhattanDistance(lastLine1Pt, i[1])
+		lastLine1Pt = i[1]
+	return closestIntersectionSteps
 
 class TestDay3(unittest.TestCase):
 
+	# Part 1 Tests
 	def test1(self):
 		self.assertEqual(parseInstruction('U13'), ('U', 13))
 
@@ -165,8 +195,13 @@ class TestDay3(unittest.TestCase):
 		pt2 = [1.0,1.0]
 		result = getManhattanDistance(pt1, pt2)
 		self.assertEqual(result, 2)
+
+	# Part 2 Tests
+	# TODO Code the example test cases
 	
 if __name__ == '__main__':
 	# unittest.main()
 	# Part 1: 855
 	print(part1())
+	# Part 2: 885418 too high
+	print(part2())
