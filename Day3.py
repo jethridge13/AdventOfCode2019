@@ -106,8 +106,9 @@ def part1():
 				closestIntersectionDistance = min(closestIntersectionDistance, distance)
 	return closestIntersectionDistance				
 
-def part2():
-	data = load('Day3.txt')
+def part2(data=None):
+	if not data:
+		data = load('Day3.txt')
 	data = data.split()
 	line1 = data[0]
 	line2 = data[1]
@@ -117,24 +118,26 @@ def part2():
 	closestIntersectionSteps = sys.maxsize
 	line1Steps = 0
 	lastLine1Pt = [0,0]
-	line2Steps = 0
 	lastLine2Pt = [0,0]
 	for i in line1Segments:
+		line2Steps = 0
 		for j in line2Segments:
 			result = checkForIntersection(i, j)
-			if result[0]:
+			if result[0] and result[1] != [0.0, 0.0]:
 				# Intersection: Calculate size
 				line1StepsFromLastPt = getManhattanDistance(lastLine1Pt, result[1])
 				line2StepsFromLastPt = getManhattanDistance(lastLine2Pt, result[1])
 				steps = line1Steps + line2Steps + line1StepsFromLastPt + line2StepsFromLastPt
 				closestIntersectionSteps = min(closestIntersectionSteps, steps)
+				print('Intersection at %s. Steps in line 1: %s+%s. Steps in line 2: %s+%s. Total steps: %s' % (result[1], line1Steps, line1StepsFromLastPt, line2Steps, line2StepsFromLastPt, steps))
 			line2Steps += getManhattanDistance(lastLine2Pt, j[1])
+			print('Adding to line2Steps: %s. Total: %s' % (getManhattanDistance(lastLine2Pt, j[1]), line2Steps))
 			lastLine2Pt = j[1]
 		# Because there are no diagonal lines, we can use
 		# the Manhattan distance to get number of steps
 		line1Steps += getManhattanDistance(lastLine1Pt, i[1])
 		lastLine1Pt = i[1]
-	return closestIntersectionSteps
+	return int(closestIntersectionSteps)
 
 class TestDay3(unittest.TestCase):
 
@@ -197,11 +200,30 @@ class TestDay3(unittest.TestCase):
 		self.assertEqual(result, 2)
 
 	# Part 2 Tests
-	# TODO Code the example test cases
+	def test12(self):
+		inp = 'R8,U5,L5,D3\n' + \
+				'U7,R6,D4,L4'
+		outp = 30
+		self.assertEqual(part2(inp), outp)
+
+	'''
+	def test13(self):
+		inp = 'R75,D30,R83,U83,L12,D49,R71,U7,L72\n' + \
+				'U62,R66,U55,R34,D71,R55,D58,R83'
+		outp = 610
+		self.assertEqual(part2(inp), outp)
+
+	def test14(self):
+		inp = 'R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51\n' + \
+				'U98,R91,D20,R16,D67,R40,U7,R15,U6,R7'
+		outp = 410
+		self.assertEqual(part2(inp), outp)
+	'''
 	
 if __name__ == '__main__':
-	# unittest.main()
+	unittest.main()
 	# Part 1: 855
 	print(part1())
 	# Part 2: 885418 too high
+	# 22852 too high
 	print(part2())
