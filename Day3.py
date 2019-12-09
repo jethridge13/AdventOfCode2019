@@ -121,6 +121,7 @@ def part2(data=None):
 	lastLine2Pt = [0,0]
 	for i in line1Segments:
 		line2Steps = 0
+		lastLine2Pt = [0,0]
 		for j in line2Segments:
 			result = checkForIntersection(i, j)
 			if result[0] and result[1] != [0.0, 0.0]:
@@ -129,9 +130,7 @@ def part2(data=None):
 				line2StepsFromLastPt = getManhattanDistance(lastLine2Pt, result[1])
 				steps = line1Steps + line2Steps + line1StepsFromLastPt + line2StepsFromLastPt
 				closestIntersectionSteps = min(closestIntersectionSteps, steps)
-				print('Intersection at %s. Steps in line 1: %s+%s. Steps in line 2: %s+%s. Total steps: %s' % (result[1], line1Steps, line1StepsFromLastPt, line2Steps, line2StepsFromLastPt, steps))
 			line2Steps += getManhattanDistance(lastLine2Pt, j[1])
-			print('Adding to line2Steps: %s. Total: %s' % (getManhattanDistance(lastLine2Pt, j[1]), line2Steps))
 			lastLine2Pt = j[1]
 		# Because there are no diagonal lines, we can use
 		# the Manhattan distance to get number of steps
@@ -206,7 +205,6 @@ class TestDay3(unittest.TestCase):
 		outp = 30
 		self.assertEqual(part2(inp), outp)
 
-	'''
 	def test13(self):
 		inp = 'R75,D30,R83,U83,L12,D49,R71,U7,L72\n' + \
 				'U62,R66,U55,R34,D71,R55,D58,R83'
@@ -218,12 +216,10 @@ class TestDay3(unittest.TestCase):
 				'U98,R91,D20,R16,D67,R40,U7,R15,U6,R7'
 		outp = 410
 		self.assertEqual(part2(inp), outp)
-	'''
 	
 if __name__ == '__main__':
-	unittest.main()
+	# unittest.main()
 	# Part 1: 855
 	print(part1())
-	# Part 2: 885418 too high
-	# 22852 too high
+	# Part 2: 11238
 	print(part2())
