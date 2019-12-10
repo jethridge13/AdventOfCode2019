@@ -8,8 +8,8 @@ def breakIntoRanges(range):
 	return limits
 
 def isValid(n, minVal=0, maxVal=1000000):
-	repeatedChars = '([0-9])\1'
-	increasing = '^(?=\d{6}$)0?1?2?3?4?5?6?7?8?9?'
+	repeatedChars = r'([0-9])\1'
+	increasing = r'^(?=\d{6}$)0*1*2*3*4*5*6*7*8*9*$'
 	match = re.search(increasing, n)
 	if not match:
 		return False
@@ -18,8 +18,13 @@ def isValid(n, minVal=0, maxVal=1000000):
 		return False
 	return True
 
-def part1():
-	pass
+def part1(limits):
+	limits = breakIntoRanges(limits)
+	count = 0
+	for i in range(limits[0], limits[1]):
+		if isValid(str(i)):
+			count += 1
+	return count
 
 def part2():
 	pass
@@ -56,9 +61,9 @@ class TestDay4(unittest.TestCase):
 		self.assertTrue(isValid(inp))
 
 if __name__ == '__main__':
-	unittest.main()
+	# unittest.main()
 	inp = '124075-580769'
-	# Part 1:
-	print(part1())
+	# Part 1: 2150
+	print(part1(inp))
 	# Part 2:
 	print(part2())
