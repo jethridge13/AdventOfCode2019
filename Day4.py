@@ -18,6 +18,12 @@ def isValid(n, minVal=0, maxVal=1000000):
 		return False
 	return True
 
+def isValid2(n):
+	if not isValid(n):
+		return False
+	# TODO Regex for this part
+	return True
+
 def part1(limits):
 	limits = breakIntoRanges(limits)
 	count = 0
