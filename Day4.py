@@ -21,8 +21,13 @@ def isValid(n, minVal=0, maxVal=1000000):
 def isValid2(n):
 	if not isValid(n):
 		return False
-	# TODO Regex for this part
-	return True
+	# Matches consecutive numbers and groups them
+	conNums = r'((\d)\2+)'
+	groups = re.findall(conNums, n)
+	for i in groups:
+		if len(i[0]) == 2:
+			return True
+	return False
 
 def part1(limits):
 	limits = breakIntoRanges(limits)
@@ -32,8 +37,13 @@ def part1(limits):
 			count += 1
 	return count
 
-def part2():
-	pass
+def part2(limits):
+	limits = breakIntoRanges(limits)
+	count = 0
+	for i in range(limits[0], limits[1]):
+		if isValid2(str(i)):
+			count += 1
+	return count
 
 class TestDay4(unittest.TestCase):
 
@@ -66,10 +76,23 @@ class TestDay4(unittest.TestCase):
 		inp = '112345'
 		self.assertTrue(isValid(inp))
 
+	# Part 2 tests
+	def test10(self):
+		inp = '112233'
+		self.assertTrue(isValid2(inp))
+
+	def test11(self):
+		inp = '123444'
+		self.assertFalse(isValid2(inp))
+
+	def test12(self):
+		inp = '111122'
+		self.assertTrue(isValid2(inp))
+
 if __name__ == '__main__':
 	# unittest.main()
 	inp = '124075-580769'
 	# Part 1: 2150
 	print(part1(inp))
-	# Part 2:
-	print(part2())
+	# Part 2: 1462
+	print(part2(inp))
