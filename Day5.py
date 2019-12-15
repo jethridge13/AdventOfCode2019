@@ -1,7 +1,16 @@
 import unittest
+import IntCode
+
+def load(path):
+	data = ''
+	with open(path, 'r') as f:
+		data = f.read()
+	return data
 
 def part1():
-	pass
+	data = load('Day5.txt')
+	data = IntCode.inputToArray(data)
+	IntCode.start(data)
 
 def part2():
 	pass
@@ -12,7 +21,7 @@ class TestDay5(unittest.TestCase):
 		pass
 
 if __name__ == '__main__':
-	unittest.main()
+	#unittest.main()
 	# Part 1: 
 	print(part1())
 	# Part 2: 

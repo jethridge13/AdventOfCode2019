@@ -43,6 +43,11 @@ class IntCode():
 			data['value3'] = self.ins[self.cursor+3]
 		return data
 
+	'''
+	Executes the given instruction
+	Returns True if execution should continue
+	Returns False if encountered the End opcode, signalling a halt
+	'''
 	def executeInstruction(self, instruction):
 		# Day 2 opcodes
 		opcode = instruction['opcode']
@@ -62,9 +67,10 @@ class IntCode():
 			# Print output
 			print(reg1)
 		elif opcode == 99:
-			break;
+			return False
 		else:
 			raise Exception('An invalid opcode has been encountered: %s' % opcode)
+		return True
 	
 	def run(self):
 		while self.ins[self.cursor] != 99:
@@ -78,7 +84,8 @@ class IntCode():
 			reg2 = data[reg2Index]
 			des = data[index+3]
 			# Perform operation
-			self.executeInstruction(instruction)
+			if not self.executeInstruction(instruction):
+				return data
 			# Increment cursor to move to next instruction
 			self.incrementCursor(opcode)
 		return data
@@ -86,3 +93,9 @@ class IntCode():
 	def start(self, data):
 		self.ins = data
 		self.run()
+
+# ------------------------------------------
+# External Helper Functions
+# ------------------------------------------
+def inputToArray(inp):
+	return list(map(int, inp.split(',')))
