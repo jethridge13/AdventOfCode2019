@@ -17,7 +17,6 @@ class IntCodeTest(unittest.TestCase):
 		data[2] = 2
 		comp = IntCode()
 		resp = comp.start(data)
-		print(resp)
 		self.assertEqual(resp[0], 3850704)
 
 if __name__ == '__main__':

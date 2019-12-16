@@ -2,6 +2,8 @@
 
 [3850704, 12, 2, 2, 1, 1, 2, 3, 1, 3, 4, 3, 1, 5, 0, 3, 2, 13, 1, 60, 1, 6, 19, 62, 2, 23, 6, 124, 1, 5, 27, 125, 1, 10, 31, 129, 2, 6, 35, 258, 1, 39, 13, 263, 1, 43, 9, 266, 2, 47, 10, 1064, 1, 5, 51, 1065, 1, 55, 10, 1069, 2, 59, 6, 2138, 2, 6, 63, 4276, 1, 5, 67, 4277, 2, 9, 71, 12831, 1, 75, 6, 12833, 1, 6, 79, 12835, 2, 83, 9, 38505, 2, 87, 13, 192525, 1, 10, 91, 192529, 1, 95, 13, 192534, 2, 13, 99, 962670, 1, 103, 10, 962674, 2, 107, 10, 3850696, 1, 111, 9, 3850699, 1, 115, 2, 3850701, 1, 9, 119, 0, 99, 2, 0, 14, 0]
 
+------------------------------------------------------------------
+
 Saving 3 to register 3
 Saving 14 to register 3
 Saving 15 to register 14
@@ -66,3 +68,69 @@ Saving 3850699 to register 115
 Saving 3850701 to register 119
 Saving 3850704 to register 0
 
+------------------------------------------------------------------
+
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 1, 'value2': 2, 'value3': 3} :: Saving 3 to register 3
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 12, 'value2': 2, 'value3': 3} :: Saving 14 to register 3
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 14, 'value2': 1, 'value3': 14} :: Saving 15 to register 14
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 1, 'value2': 3, 'value3': 14} :: Saving 4 to register 14
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 5, 'value2': 12, 'value3': 19} :: Saving 60 to register 19
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 2, 'value2': 60, 'value3': 23} :: Saving 62 to register 23
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 62, 'value2': 2, 'value3': 27} :: Saving 124 to register 27
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 1, 'value2': 124, 'value3': 31} :: Saving 125 to register 31
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 4, 'value2': 125, 'value3': 35} :: Saving 129 to register 35
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 2, 'value2': 129, 'value3': 39} :: Saving 258 to register 39
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 258, 'value2': 5, 'value3': 43} :: Saving 263 to register 43
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 263, 'value2': 3, 'value3': 47} :: Saving 266 to register 47
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 266, 'value2': 4, 'value3': 51} :: Saving 1064 to register 51
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 1, 'value2': 1064, 'value3': 55} :: Saving 1065 to register 55
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 1065, 'value2': 4, 'value3': 59} :: Saving 1069 to register 59
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 1069, 'value2': 2, 'value3': 63} :: Saving 2138 to register 63
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 2, 'value2': 2138, 'value3': 67} :: Saving 4276 to register 67
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 1, 'value2': 4276, 'value3': 71} :: Saving 4277 to register 71
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 3, 'value2': 4277, 'value3': 75} :: Saving 12831 to register 75
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 12831, 'value2': 2, 'value3': 79} :: Saving 12833 to register 79
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 2, 'value2': 12833, 'value3': 83} :: Saving 12835 to register 83
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 12835, 'value2': 3, 'value3': 87} :: Saving 38505 to register 87
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 38505, 'value2': 5, 'value3': 91} :: Saving 192525 to register 91
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 4, 'value2': 192525, 'value3': 95} :: Saving 192529 to register 95
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 192529, 'value2': 5, 'value3': 99} :: Saving 192534 to register 99
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 5, 'value2': 192534, 'value3': 103} :: Saving 962670 to register 103
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 962670, 'value2': 4, 'value3': 107} :: Saving 962674 to register 107
+{'1': 0, '2': 0, '3': 0, 'opcode': 2, 'value1': 962674, 'value2': 4, 'value3': 111} :: Saving 3850696 to register 111
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 3850696, 'value2': 3, 'value3': 115} :: Saving 3850699 to register 115
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 3850699, 'value2': 2, 'value3': 119} :: Saving 3850701 to register 119
+{'1': 0, '2': 0, '3': 0, 'opcode': 1, 'value1': 3, 'value2': 3850701, 'value3': 1} :: Saving 3850704 to register 1
+
+
+[1, 12, 2, 3] :: saving 3 to 3
+[1, 1, 2, 3] :: saving 14 to 3
+[1, 3, 4, 3] :: saving 15 to 3
+[1, 5, 0, 3] :: saving 2 to 3
+[2, 13, 1, 19] :: saving 60 to 19
+[1, 6, 19, 23] :: saving 62 to 23
+[2, 23, 6, 27] :: saving 124 to 27
+[1, 5, 27, 31] :: saving 125 to 31
+[1, 10, 31, 35] :: saving 129 to 35
+[2, 6, 35, 39] :: saving 258 to 39
+[1, 39, 13, 43] :: saving 263 to 43
+[1, 43, 9, 47] :: saving 266 to 47
+[2, 47, 10, 51] :: saving 1064 to 51
+[1, 5, 51, 55] :: saving 1065 to 55
+[1, 55, 10, 59] :: saving 1069 to 59
+[2, 59, 6, 63] :: saving 2138 to 63
+[2, 6, 63, 67] :: saving 4276 to 67
+[1, 5, 67, 71] :: saving 4277 to 71
+[2, 9, 71, 75] :: saving 12831 to 75
+[1, 75, 6, 79] :: saving 12833 to 79
+[1, 6, 79, 83] :: saving 12835 to 83
+[2, 83, 9, 87] :: saving 38505 to 87
+[2, 87, 13, 91] :: saving 192525 to 91
+[1, 10, 91, 95] :: saving 192529 to 95
+[1, 95, 13, 99] :: saving 192534 to 99
+[2, 13, 99, 103] :: saving 962670 to 103
+[1, 103, 10, 107] :: saving 962674 to 107
+[2, 107, 10, 111] :: saving 3850696 to 111
+[1, 111, 9, 115] :: saving 3850699 to 115
+[1, 115, 2, 119] :: saving 3850701 to 119
+[1, 9, 119, 0] :: saving 3850704 to 0

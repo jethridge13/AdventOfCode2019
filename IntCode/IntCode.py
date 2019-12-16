@@ -19,6 +19,7 @@ class IntCode():
 		# should also cover it
 		if len(str(inp)) == 1:
 			data['opcode'] = inp
+			data['3'] = 1
 			data = self.getValues(data)
 			return data
 		# TODO Handling for bigger instructions
@@ -54,12 +55,10 @@ class IntCode():
 		if opcode == 1:
 			# Add two values
 			result = instruction['value1'] + instruction['value2']
-			print('Saving %s to register %s' % (result, instruction['value3']))
 			self.ins[instruction['value3']] = result
 		elif opcode == 2:
 			# Multiply two values
 			result = instruction['value1'] * instruction['value2']
-			print('Saving %s to register %s' % (result, instruction['value3']))
 			self.ins[instruction['value3']] = result
 		# Day 5 opcodes
 		elif opcode == 3:
