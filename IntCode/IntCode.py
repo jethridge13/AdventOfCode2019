@@ -17,7 +17,7 @@ class IntCode():
 		data['3'] = 0
 		# TODO This special handling can be removed since the general case
 		# should also cover it
-		if len(inp) == 1:
+		if len(str(inp)) == 1:
 			data['opcode'] = inp
 			data = self.getValues(data)
 			return data
@@ -53,16 +53,18 @@ class IntCode():
 		opcode = instruction['opcode']
 		if opcode == 1:
 			# Add two values
-			result = reg1 + reg2
-			data[des] = result
+			result = instruction['value1'] + instruction['value2']
+			print('Saving %s to register %s' % (result, instruction['value3']))
+			self.ins[instruction['value3']] = result
 		elif opcode == 2:
 			# Multiply two values
-			result = reg1 * reg2
-			data[des] = result
+			result = instruction['value1'] * instruction['value2']
+			print('Saving %s to register %s' % (result, instruction['value3']))
+			self.ins[instruction['value3']] = result
 		# Day 5 opcodes
 		elif opcode == 3:
 			# Ask for user input
-			data[reg1Index] = input()
+			self.ins[reg1Index] = input()
 		elif opcode == 4:
 			# Print output
 			print(reg1)
@@ -76,23 +78,16 @@ class IntCode():
 		while self.ins[self.cursor] != 99:
 			# Get opcode and registers
 			instruction = self.getInstruction(self.ins[self.cursor])
-			# TODO Update this for Day 5
-			opcode = data[index]
-			reg1Index = data[index+1]
-			reg1 = data[reg1Index]
-			reg2Index = data[index+2]
-			reg2 = data[reg2Index]
-			des = data[index+3]
 			# Perform operation
 			if not self.executeInstruction(instruction):
 				return data
 			# Increment cursor to move to next instruction
-			self.incrementCursor(opcode)
-		return data
+			self.incrementCursor(instruction['opcode'])
+		return self.ins
 
 	def start(self, data):
 		self.ins = data
-		self.run()
+		return self.run()
 
 # ------------------------------------------
 # External Helper Functions
