@@ -1,5 +1,5 @@
 import unittest
-import IntCode
+from IntCode import IntCode
 
 def load(path):
 	data = ''
@@ -7,10 +7,14 @@ def load(path):
 		data = f.read()
 	return data
 
+def inputToArray(inp):
+	return list(map(int, inp.split(',')))
+
 def part1():
 	data = load('Day5.txt')
+	comp = IntCode.IntCode()
 	data = IntCode.inputToArray(data)
-	IntCode.start(data)
+	comp.start(data)
 
 def part2():
 	pass

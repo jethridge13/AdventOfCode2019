@@ -1,4 +1,4 @@
-class IntCode():
+class IntCode(object):
 
 	cursor = 0
 	ins = []
@@ -19,10 +19,22 @@ class IntCode():
 		# should also cover it
 		if len(str(inp)) == 1:
 			data['opcode'] = inp
-			data['3'] = 1
+			if inp == 1 or inp == 2:
+				data['3'] = 1
 			data = self.getValues(data)
 			return data
 		# TODO Handling for bigger instructions
+		opcode = int(str(inp)[-2:])
+		data['opcode'] = opcode
+		parameters = list(str(inp)[:-2])
+		parameters.reverse()
+		# TODO Redo this as a list
+		if len(parameters) > 0:
+			data['1'] = parameters.pop()
+		if len(parameters) > 0:
+			data['2'] = parameters.pop()
+		if len(parameters) > 0:
+			data['3'] = parameters.pop()
 		return data
 
 	def getValues(self, data):
@@ -63,10 +75,10 @@ class IntCode():
 		# Day 5 opcodes
 		elif opcode == 3:
 			# Ask for user input
-			self.ins[reg1Index] = input()
+			self.ins[instruction['value1']] = input('>')
 		elif opcode == 4:
 			# Print output
-			print(reg1)
+			print(self.ins[instruction['value1']])
 		elif opcode == 99:
 			return False
 		else:
