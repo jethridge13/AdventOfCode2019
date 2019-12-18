@@ -82,7 +82,7 @@ def part2(data=None):
 	# Substract starting node, ending node, and beginning orbitting node
 	return len(path) - 3
 
-class TestDay5(unittest.TestCase):
+class TestDay6(unittest.TestCase):
 
 	# Part 1 tests
 	def test1(self):
